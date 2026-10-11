@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>إنجازي | أثرٌ يتجدد</title>
+<meta name="description" content="ملف إنجاز المعلمات: مجلدات المعلمات مرتبة حسب القسم.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div dir="rtl" lang="ar">
+  <header class="hero" id="hero">
+    <span class="deco d-pencil" data-depth="1.4"><span class="ic ic-pencil"></span></span>
+    <span class="deco d-scribA" data-depth=".5"><span class="ic ic-scribA"></span></span>
+    <span class="deco d-scribB" data-depth=".5"><span class="ic ic-scribB"></span></span>
+    <span class="deco d-notes" data-depth=".8"><span class="ic ic-notebooks"></span></span>
+    <span class="deco d-board" data-depth=".8"><span class="ic ic-clipboard"></span></span>
+    <span class="deco d-micro" data-depth="1.1"><span class="ic ic-microscope"></span></span>
+    <span class="deco d-sci" data-depth="1.1"><span class="ic ic-science"></span></span>
+    <div class="frame">
+      <span class="kicker">ملف إنجاز المعلمات</span>
+      <h1><span>إنجـازي</span><span class="bar"></span><span>أثـرٌ يتجـدد</span></h1>
+      <p class="motto">نوثق الجهـد .. ونصنع الأثـر</p>
+      <p class="sum" id="sum">مجلدات المعلمات مرتبة حسب القسم</p>
+      <div class="search" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input id="q" type="search" placeholder="ابحثي باسم المعلمة" autocomplete="off" aria-label="البحث باسم المعلمة">
+        <button class="clear" id="clear" type="button" aria-label="مسح البحث" hidden>×</button>
+      </div>
+    </div>
+    <span class="deco d-clip" data-depth=".3"><span class="ic ic-clipTop"></span></span>
+    <span class="deco d-books" data-depth="1.8"><span class="ic ic-books"></span></span>
+    <span class="deco d-globe" data-depth="1.8"><span class="ic ic-globe"></span></span>
+    <span class="deco d-clipR" data-depth=".6"><span class="ic ic-clipR"></span></span>
+    <span class="deco d-scissors" data-depth="2.2"><span class="ic ic-scissors"></span></span>
+    <span class="deco d-bus" data-depth="2"><span class="ic ic-bus"></span></span>
+    <span class="deco d-lens" data-depth=".4"><span class="ic ic-magnifier"></span></span>
+  </header>
+
+  <div class="page">
+    <div class="tabs-wrap">
+      <div class="tabs" id="tabs" role="tablist" aria-label="الأقسام"><span class="slider" id="slider"></span></div>
+    </div>
+
+    <main id="main"></main>
+
+    <div class="empty" id="empty" hidden>
+      <span class="ic ic-magnifier"></span>
+      <strong>لا يوجد اسم مطابق</strong>
+      <span>جرّبي جزءًا آخر من الاسم، أو اعرضي جميع الأقسام.</span>
+      <button type="button" id="reset">عرض الكل</button>
+    </div>
+
+    <footer>
+      <span class="row"><span class="ic ic-books"></span><span class="ic ic-globe"></span><span class="ic ic-bus"></span></span>
+      <span>كل سحابة تفتح مجلد المعلمة على Google Drive في نافذة جديدة.</span>
+    </footer>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" dir="rtl"></div>
+<script src="js/script.js"></script>
+</body>
+</html>
