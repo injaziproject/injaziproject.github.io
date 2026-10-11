@@ -46,7 +46,7 @@ DATA.forEach((sec, si) => {
   sec.people.forEach((p, pi) => {
     const c = el('article', 'card');
     c.style.setProperty('--i', Math.min(uid, 12));
-    c.style.viewTransitionName = 'card-' + uid++;
+    uid++;
     const a = el('a', 'card-link',
       '<span class="pill"></span>' +
       '<span class="folder" aria-hidden="true"><span class="f-back"></span><span class="f-sheet"></span><span class="f-front"></span></span>' +
@@ -84,9 +84,32 @@ function render() {
   tabs.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.key === state.tab));
   moveSlider();
 }
-function apply(animate) {
-  if (animate && !reduce && document.startViewTransition) document.startViewTransition(render);
-  else render();
+function markTabs() {
+  tabs.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.key === state.tab));
+  moveSlider();
+}
+let swapToken = 0;
+function enter() {
+  let j = 0;
+  cards.forEach(c => { if (!c.node.hidden) c.node.style.setProperty('--j', Math.min(j++, 11)); });
+  main.classList.remove('swap', 'leaving');
+  void main.offsetWidth;
+  main.classList.add('swap');
+}
+function apply(mode) {
+  if (!mode || reduce) { render(); return; }
+  const my = ++swapToken;
+  if (mode === 'type') { render(); enter(); return; }
+  markTabs();
+  main.classList.remove('swap');
+  main.classList.add('leaving');
+  setTimeout(() => {
+    if (my !== swapToken) return;
+    render();
+    const bar = tabs.parentElement.getBoundingClientRect(), top = main.getBoundingClientRect().top;
+    if (top < bar.bottom) window.scrollBy(0, top - bar.bottom - 14);
+    enter();
+  }, 230);
 }
 function moveSlider() {
   const t = tabs.querySelector('.tab[aria-selected="true"]');
@@ -102,7 +125,7 @@ function moveSlider() {
 }
 
 const q = $('#q');
-q.addEventListener('input', () => { state.q = q.value; apply(true); });
+q.addEventListener('input', () => { state.q = q.value; apply('type'); });
 $('#clear').addEventListener('click', () => { q.value = ''; state.q = ''; apply(true); q.focus(); });
 $('#reset').addEventListener('click', () => { q.value = ''; state.q = ''; state.tab = 'all'; apply(true); });
 addEventListener('resize', moveSlider);
