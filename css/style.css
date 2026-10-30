@@ -126,7 +126,7 @@ h1 .bar{width:.075em;height:.95em;background:var(--ink);border-radius:99px}
 .tab b{font-family:var(--body);font-weight:500;font-size:.78rem;opacity:.7;font-variant-numeric:tabular-nums}
 
 /* ---------- sections ---------- */
-.t0{--acc:var(--pink)} .t1{--acc:var(--teal)} .t2{--acc:var(--amber)} .t3{--acc:var(--lav)} .t4{--acc:var(--coral)}
+.t0{--acc:var(--pink)} .t1{--acc:var(--teal)} .t2{--acc:var(--amber)} .t3{--acc:var(--lav)} .t4{--acc:var(--coral)} .t5{--acc:var(--ink)}
 main{display:flex;flex-direction:column;gap:56px}
 .section{display:flex;flex-direction:column;gap:34px;scroll-margin-top:90px}
 .section-head{display:flex;align-items:center;gap:14px}
